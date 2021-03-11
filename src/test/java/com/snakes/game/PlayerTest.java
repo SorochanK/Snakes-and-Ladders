@@ -1,4 +1,61 @@
 package com.snakes.game;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.*;
+
 public class PlayerTest {
+
+    @Mock
+    Token token;
+    @Mock
+    Dice dice;
+
+    @InjectMocks
+    Player player;
+
+    @BeforeEach
+    void init_mocks() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    public void initToken() {
+        player.initToken();
+        verify(token, times(1)).setPosition(eq(1));
+    }
+
+    @Test
+    public void rollDice() {
+        int random = new Random().nextInt(10);
+        when(dice.roll()).thenReturn(random);
+        final int result = player.rollDice();
+        assertEquals(random, result);
+        verify(dice, times(1)).roll();
+    }
+
+    @Test
+    public void canMoveTrue() {
+        when(token.getPosition()).thenReturn(80);
+        final boolean canMove = player.canMove(5);
+        assertTrue(canMove);
+        verify(token, times(1)).getPosition();
+    }
+
+    @Test
+    public void canMoveFalse() {
+        when(token.getPosition()).thenReturn(97);
+        final boolean canMove = player.canMove(4);
+        assertFalse(canMove);
+        verify(token, times(1)).getPosition();
+    }
+
 }
