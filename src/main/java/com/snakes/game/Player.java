@@ -1,15 +1,14 @@
 package com.snakes.game;
 
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import static com.snakes.game.Game.*;
+import static com.snakes.game.Game.START_POSITION;
+import static com.snakes.game.Randomizer.getRandomInt;
 
-@Getter
-@Setter
+@Data
 @Component
 @RequiredArgsConstructor
 public class Player {
@@ -23,16 +22,5 @@ public class Player {
 
     public int rollDice() {
         return dice.roll();
-    }
-
-    public void moveToken(int moves) {
-        if (canMove(moves)) {
-            token.setPosition(token.getPosition() + moves);
-        }
-    }
-
-    public boolean canMove(int moves) {
-        final int currentPosition = token.getPosition();
-        return (currentPosition + moves) <= END_POSITION;
     }
 }

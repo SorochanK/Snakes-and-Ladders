@@ -31,7 +31,7 @@ public class GameTest {
     public void isPlayerWinGame() {
         when(token.getPosition()).thenReturn(99);
         when(player.getToken()).thenReturn(token);
-        final boolean playerWinGame = game.isPlayerWinGame(player, 1);
+        final boolean playerWinGame = game.isPlayerWin(player, 1);
         assertTrue(playerWinGame);
     }
 
@@ -39,7 +39,7 @@ public class GameTest {
     public void isPlayerDontWinGame() {
         when(token.getPosition()).thenReturn(98);
         when(player.getToken()).thenReturn(token);
-        final boolean playerWinGame = game.isPlayerWinGame(player, 1);
+        final boolean playerWinGame = game.isPlayerWin(player, 1);
         assertFalse(playerWinGame);
     }
 
@@ -51,7 +51,6 @@ public class GameTest {
         when(player.rollDice()).thenReturn(randomValue);
         game.startGame();
         verify(player, times(1)).initToken();
-        verify(player, times(1)).moveToken(anyInt());
     }
 
     @Test
@@ -61,6 +60,23 @@ public class GameTest {
         when(player.rollDice()).thenReturn(2);
         game.startGame();
         verify(player, times(1)).initToken();
-        verify(player, times(0)).moveToken(anyInt());
+    }
+
+    @Test
+    public void canMoveTrue() {
+        when(token.getPosition()).thenReturn(80);
+        when(player.getToken()).thenReturn(token);
+        final boolean canMove = game.canMove(player, 5);
+        assertTrue(canMove);
+        verify(token, times(1)).getPosition();
+    }
+
+    @Test
+    public void canMoveFalse() {
+        when(token.getPosition()).thenReturn(97);
+        when(player.getToken()).thenReturn(token);
+        final boolean canMove = game.canMove(player, 4);
+        assertFalse(canMove);
+        verify(token, times(1)).getPosition();
     }
 }

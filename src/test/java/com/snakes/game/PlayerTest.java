@@ -42,20 +42,4 @@ public class PlayerTest {
         verify(dice, times(1)).roll();
     }
 
-    @Test
-    public void canMoveTrue() {
-        when(token.getPosition()).thenReturn(80);
-        final boolean canMove = player.canMove(5);
-        assertTrue(canMove);
-        verify(token, times(1)).getPosition();
-    }
-
-    @Test
-    public void canMoveFalse() {
-        when(token.getPosition()).thenReturn(97);
-        final boolean canMove = player.canMove(4);
-        assertFalse(canMove);
-        verify(token, times(1)).getPosition();
-    }
-
 }

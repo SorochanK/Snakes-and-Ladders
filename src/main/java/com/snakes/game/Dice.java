@@ -2,7 +2,7 @@ package com.snakes.game;
 
 import org.springframework.stereotype.Component;
 
-import static com.snakes.game.Game.getRandomInt;
+import static com.snakes.game.Randomizer.getRandomInt;
 
 @Component
 public class Dice {
