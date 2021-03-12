@@ -1,8 +1,5 @@
-package com.snakes.game;
+package com.snakes.game.unit;
 
-import com.snakes.game.unit.Dice;
-import com.snakes.game.unit.Player;
-import com.snakes.game.unit.Token;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,7 +8,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 

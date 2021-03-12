@@ -1,6 +1,5 @@
-package com.snakes.game;
+package com.snakes.game.logic;
 
-import com.snakes.game.logic.Game;
 import com.snakes.game.unit.Player;
 import com.snakes.game.unit.Token;
 import org.junit.jupiter.api.BeforeEach;
