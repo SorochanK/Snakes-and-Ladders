@@ -1,6 +1,7 @@
-package com.snakes.game;
+package com.snakes.game.logic;
 
 
+import com.snakes.game.unit.Player;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;

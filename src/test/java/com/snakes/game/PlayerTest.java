@@ -1,5 +1,8 @@
 package com.snakes.game;
 
+import com.snakes.game.unit.Dice;
+import com.snakes.game.unit.Player;
+import com.snakes.game.unit.Token;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

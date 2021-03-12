@@ -1,4 +1,4 @@
-package com.snakes.game;
+package com.snakes.game.unit;
 
 import lombok.Getter;
 import lombok.Setter;

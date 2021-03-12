@@ -1,12 +1,12 @@
-package com.snakes.game;
+package com.snakes.game.unit;
 
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import static com.snakes.game.Game.START_POSITION;
-import static com.snakes.game.Randomizer.getRandomInt;
+import static com.snakes.game.logic.Game.START_POSITION;
+import static com.snakes.game.util.Randomizer.getRandomInt;
 
 @Data
 @Component

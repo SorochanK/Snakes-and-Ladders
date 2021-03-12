@@ -1,5 +1,6 @@
 package com.snakes.game;
 
+import com.snakes.game.unit.Dice;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
